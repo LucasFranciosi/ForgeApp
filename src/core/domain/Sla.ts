@@ -1,0 +1,3 @@
+export type MachineSlaSnapshot={id:string;machineId:string;effectiveFrom:string;effectiveTo?:string;minimumAvailabilityPercent?:number;minimumEfficiencyPercent?:number;maximumDowntimeMinutes?:number;maximumUnplannedDowntimeMinutes?:number;createdAt:string;updatedAt:string;version:number};
+export class SlaRuleViolation extends Error{constructor(message:string){super(message);this.name='SlaRuleViolation';}}
+export function validateSla(s:MachineSlaSnapshot){for(const n of[s.minimumAvailabilityPercent,s.minimumEfficiencyPercent])if(n!=null&&(n<0||n>100))throw new SlaRuleViolation('Metas percentuais devem estar entre 0 e 100.');if(s.effectiveTo&&s.effectiveTo<s.effectiveFrom)throw new SlaRuleViolation('Fim da vigência inválido.');}

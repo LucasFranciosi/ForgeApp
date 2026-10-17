@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "FORGE",
+    "slug": "forge-industrial-mobile",
+    "scheme": "forge",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.forge.industrial",
+      "permissions": [
+        "CAMERA"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#F4F6F9"
+      }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O FORGE usa suas fotos como evidência técnica em ordens de serviço.",
+          "cameraPermission": "O FORGE usa a câmera para registrar evidências de manutenção.",
+          "microphonePermission": false
+        }
+      ],
+      "expo-sqlite"
+    ]
+  }
+}
